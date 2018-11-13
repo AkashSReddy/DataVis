@@ -8,6 +8,8 @@
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.3",
+    "chart.js": "^2.7.3",
+    "chartjs-node": "^1.7.1",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
     "ejs": "~2.5.7",

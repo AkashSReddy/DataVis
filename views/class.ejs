@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+
+  <body>
+    <h1><%= title %></h1>
+    <h5>This is the AVG page</h5>
+    <p>Welcome to <%= title %></p>
+    <% data.forEach(function(data){ %>
+    <div>
+      <form action="/<%=data.course_code%>" method="GET">
+        <button><%=data.course_code%></button>
+      </form>
+    </div>
+    <%})%>
+  </body>
+</html>
