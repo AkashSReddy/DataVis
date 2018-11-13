@@ -1,2 +1,0 @@
-This is the folder containing files related to the login.
-Here you can find both the login form of the Student as well of faculty login.
