@@ -2,24 +2,25 @@
 <html>
   <head>
     <title><%= title %></title>
-    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="stylesheet" href="/stylesheets/marks.css" />
     <script src="/scripts/Chart.js"></script>
+    <script src="/scripts/jquery.js"></script>
   </head>
 
   <body>
     <h1><%= title %></h1>
     <h5>This is the AVG page</h5>
     <p>Welcome to <%= title %></p>
+    <% var Test = [10,10,10,10,10]; %>
     <canvas id="myChart" width="400" height="400">myChart</canvas>
     <script>
-      var ctx = document.getElementById("myChart");
-      var myChart = new Chart(ctx, {
+      var c_data = {
         type: "bar",
         data: {
           labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
           datasets: [
             {
-              label: "# of Votes",
+              label: "Marks",
               data: [12, 19, 3, 5, 2, 3],
               backgroundColor: [
                 "rgba(255, 99, 132, 0.2)",
@@ -52,6 +53,41 @@
             ]
           }
         }
+      };
+    </script>
+    <script>
+      var ctx = document.getElementById("myChart");
+      var myChart = new Chart(ctx, c_data);
+    </script>
+    <script>
+      function addData(chart, label, data) {
+        chart.data.labels.push(label);
+        chart.data.datasets.forEach(dataset => {
+          dataset.data.push(data);
+        });
+        chart.update();
+      }
+
+      function removeData(chart) {
+        chart.data.labels.pop();
+        chart.data.datasets.forEach(dataset => {
+          var yo = dataset.data.pop();
+          console.log(yo);
+        });
+        chart.update();
+      }
+
+      // removeData(myChart);
+      c_data.data.datasets[0].data = [10, 10, 10, 10];
+      myChart.update();
+      // console.log(c_data.data.datasets[0].data);
+    </script>
+    <script>
+      console.log("YAYAYAYAY");
+      $.getJSON("http://localhost:3000/test", function(data) {
+        console.log(data);
+        c_data.data.datasets[0].data = data;
+        myChart.update();
       });
     </script>
   </body>

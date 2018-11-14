@@ -2,7 +2,8 @@
 <html>
   <head>
     <title><%= title %></title>
-    <link rel="stylesheet" href="/stylesheets/class.css" />
+    <link rel="stylesheet" href="/stylesheets/cat.css" />
+    <script src="/scripts/jquery.js"></script>
   </head>
 
   <body>
@@ -11,12 +12,10 @@
     <p>Welcome to <%= title %></p>
     <% data.forEach(function(data){ %>
     <div>
-      <form action="/<%=data.course_code%>" method="GET">
-        <button><%=data.course_code%></button>
+      <form action="/<%=data.Field%>" method="POST">
+        <p><%=data.Field%></p>
+        <input type="submit" name="<%=data.Field%>" />
       </form>
-      <script>
-        console.log(data);
-      </script>
     </div>
     <%})%>
   </body>
