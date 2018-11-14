@@ -12,6 +12,7 @@
     <h5>This is the AVG page</h5>
     <p>Welcome to <%= title %></p>
     <% var Test = [10,10,10,10,10]; %>
+
     <canvas id="myChart" width="400" height="400">myChart</canvas>
     <script>
       var c_data = {
@@ -20,7 +21,7 @@
           labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
           datasets: [
             {
-              label: "Marks",
+              label: "marks",
               data: [12, 19, 3, 5, 2, 3],
               backgroundColor: [
                 "rgba(255, 99, 132, 0.2)",
@@ -55,6 +56,7 @@
         }
       };
     </script>
+
     <script>
       var ctx = document.getElementById("myChart");
       var myChart = new Chart(ctx, c_data);
@@ -83,7 +85,6 @@
       // console.log(c_data.data.datasets[0].data);
     </script>
     <script>
-      console.log("YAYAYAYAY");
       $.getJSON("http://localhost:3000/test", function(data) {
         console.log(data);
         c_data.data.datasets[0].data = data;
