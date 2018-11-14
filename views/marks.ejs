@@ -88,6 +88,9 @@
       $.getJSON("http://localhost:3000/test", function(data) {
         console.log(data);
         c_data.data.datasets[0].data = data;
+        myArray = ["pie", "bar", "line"];
+        var rand = myArray[Math.floor(Math.random() * myArray.length)];
+        c_data.type = rand;
         myChart.update();
       });
     </script>
